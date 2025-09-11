@@ -4,34 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miembros de la Red de Investigación</title>
+    <title>Contacto - Red de Investigación</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/social.css">
-
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .table th {
-            background-color: #20c997;
-            color: white;
-            text-align: center;
-        }
-
-        .table td {
-            vertical-align: middle;
-            text-align: center;
-        }
-
-        .foto-perfil {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid #20c997;
-            object-fit: cover;
-        }
-    </style>
 </head>
 
 <body>
@@ -43,7 +18,7 @@
     </header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Inicio</a>
+            <a class="navbar-brand" href="index.php">Inicio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -52,16 +27,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="miembros.html">Investigadores</a>
+                        <a class="nav-link active" aria-current="page" href="miembros.php">Investigadores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
+                        <a class="nav-link" href="contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="congresos.html">Congresos</a>
+                        <a class="nav-link" href="congresos.php">Congresos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="proyectos.html">Proyectos</a>
+                        <a class="nav-link" href="proyectos.php">Proyectos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -69,8 +44,8 @@
                             Investigaciones
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="investigacion1.html">Investigacion 1</a></li>
-                            <li><a class="dropdown-item" href="investigacion2.html">Investigacion 2</a></li>
+                            <li><a class="dropdown-item" href="investigacion1.php">Investigacion 1</a></li>
+                            <li><a class="dropdown-item" href="investigacion2.php">Investigacion 2</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -81,58 +56,54 @@
             </div>
         </div>
     </nav>
-    <div class="container my-5">
-        <h2 class="mb-4">Miembros investigadores de la red</h2>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Contacto</h2>
 
-        <div class="table-responsive">
-            <table class="table table-hover align-middle shadow-sm rounded">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Grado</th>
-                        <th>Correo</th>
-                        <th>Especialidad</th>
-                        <th>Foto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Angel</td>
-                        <td>PhD</td>
-                        <td><a href="mailto:angel@gmail.com">angel@gmail.com</a></td>
-                        <td>Redes</td>
-                        <td><img src="imagen/angel.jpg" alt="Angel" class="foto-perfil"></td>
-                    </tr>
-                    <tr class="table-light">
-                        <td>Ian</td>
-                        <td>Filosofía</td>
-                        <td><a href="mailto:ian@gmail.com">ian@gmail.com</a></td>
-                        <td>IA aplicada</td>
-                        <td><img src="imagen/ian.jpg" alt="Ian" class="foto-perfil"></td>
-                    </tr>
-                    <tr>
-                        <td>Luis Lao</td>
-                        <td>Ing. Sistemas</td>
-                        <td><a href="mailto:luislao@gmail.com">luislao@gmail.com</a></td>
-                        <td>Fullstack</td>
-                        <td><img src="imagen/luislao.jpg" alt="Luis Lao" class="foto-perfil"></td>
-                    </tr>
-                    <tr class="table-light">
-                        <td>Octavio</td>
-                        <td>DevOps</td>
-                        <td><a href="mailto:octavio@gmail.com">octavio@gmail.com</a></td>
-                        <td>Fullstack</td>
-                        <td><img src="imagen/octavio.jpg" alt="Octavio" class="foto-perfil"></td>
-                    </tr>
-                    <tr>
-                        <td>Uriel</td>
-                        <td>Licenciatura</td>
-                        <td><a href="mailto:uriel@gmail.com">uriel@gmail.com</a></td>
-                        <td>Ciberseguridad</td>
-                        <td><img src="imagen/uriel.jpg" alt="Uriel" class="foto-perfil"></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="correo" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo de comentario</label>
+                        <select class="form-select" id="tipo" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="comentario">Comentario</option>
+                            <option value="queja">Queja</option>
+                            <option value="inscripcion">Inscripción</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."
+                            required></textarea>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-4 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Información de contacto</h5>
+                <p class="card-text mb-1"><strong>Teléfono:</strong> +52 461 123 4567</p>
+                <p class="card-text"><strong>Correo:</strong> contacto@redinvestigacion.com</p>
+            </div>
         </div>
     </div>
     <footer>

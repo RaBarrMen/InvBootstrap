@@ -25,7 +25,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Inicio</a>
+                <a class="navbar-brand" href="index.php">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -34,16 +34,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="miembros.html">Investigadores</a>
+                            <a class="nav-link active" aria-current="page" href="miembros.php">Investigadores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contacto</a>
+                            <a class="nav-link" href="contacto.php">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="congresos.html">Congresos</a>
+                            <a class="nav-link" href="congresos.php">Congresos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="proyectos.html">Proyectos</a>
+                            <a class="nav-link" href="proyectos.php">Proyectos</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -51,8 +51,8 @@
                                 Investigaciones
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="investigacion1.html">Investigacion 1</a></li>
-                                <li><a class="dropdown-item" href="investigacion2.html">Investigacion 2</a></li>
+                                <li><a class="dropdown-item" href="investigacion1.php">Investigacion 1</a></li>
+                                <li><a class="dropdown-item" href="investigacion2.php">Investigacion 2</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
