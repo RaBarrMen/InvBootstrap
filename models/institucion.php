@@ -1,17 +1,14 @@
 <?php
-class Sistema{
-    var $_DSN = "mysql:host=mariadb;dbname=database";
-    var $_user = "user";
-    var $_password = "password";
-    var $_DB = null;
-    function connect(){
-        $this -> _DB = new PDO($this -> _DSN, $this -> _user, $this -> _password);
-        
-    }
-}
-
+require_once("sistema.php");
 class Institucion extends Sistema{
     function create($data){
+        $this->connect();
+        $sql = "insert into institucion( institucion, logotipo) values (:institucion, :logotipo);";
+        $sth = $this->_DB->prepare($sql);
+        $sth->bindParam(":institucion", $data['institucion'], PDO::PARAM_STR);
+        $sth->bindParam(":logotipo", $data['logotipo'], PDO::PARAM_STR);
+        $sth->execute();
+        $rowsAffected = $sth->rowCount();
         return $rowsAffected;
     }
 
@@ -37,7 +34,18 @@ class Institucion extends Sistema{
     }
 
     function delete($id){
-        return $rowsAffected;
+        if (is_numeric($id)){
+            $this->connect();
+            $sql = "DELETE FROM institucion WHERE id_institucion = :id_institucion";
+            $sth = $this->_DB->prepare($sql);
+            $sth->bindParam(":id_institucion", $id, PDO::PARAM_INT);
+            $sth->execute();
+            $rowsAffected = $sth->rowCount();
+            return $rowsAffected;
+        }else{
+            return null;
+        }
+        
     }
 
 }
