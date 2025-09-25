@@ -6,22 +6,35 @@ $data = array();
 include("./views/header.php");
 switch($action) {
     case 'create':
-        $data['institucion'] = $_POST['institucion'];
-        $data['logotipo'] = $_POST['logotipo'];
-        $filas = $app->create($data);
-        echo $filas;
+        if(isset($_POST['enviar'])){
+            $data['institucion'] = $_POST['institucion'];
+            $data['logotipo'] = $_POST['logotipo'];
+            $filas = $app->create($data); 
+            $data = $app->read();
+            include("./views/institucion/index.php");               
+        }else{
+            include("./views/institucion/_form.php");
+        }
         break;
     
     case 'update':
-        $data['institucion'] = $_POST['institucion'];
-        $data['logotipo'] = $_POST['logotipo'];
-        $id = $_POST['id_institucion'];
-        $filas = $app->update($data, $id);
-        echo $filas;
+            if(isset($_POST['enviar'])){
+                $data['institucion'] = $_POST['institucion'];
+                $data['logotipo'] = $_POST['logotipo'];
+                $id = $_GET['id'];
+                $filas = $app->update($data, $id);
+                $data = $app->read();      
+                include("./views/institucion/index.php");          
+            } else{
+                $id = $_GET['id'];
+                $data = $app->readOne($id);
+                include("./views/institucion/_form_update.php");
+                
+            }
         break;
 
-    case 'delete':
-        if (!isset($_GET['id'])) {
+    case 'delete':        
+        if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $filas = $app->delete($id);
 
