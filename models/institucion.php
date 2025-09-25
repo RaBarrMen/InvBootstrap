@@ -30,6 +30,14 @@ class Institucion extends Sistema{
     }
 
     function update($data, $id){
+        $this->connect();
+        $sql = "UPDATE institucion SET institucion = :institucion, logotipo = :logotipo WHERE id_institucion = :id_institucion";
+        $sth = $this->_DB->prepare($sql);
+        $sth->bindParam(":institucion", $data['institucion'], PDO::PARAM_STR);
+        $sth->bindParam(":logotipo", $data['logotipo'], PDO::PARAM_STR);
+        $sth->bindParam(":id_institucion", $id, PDO::PARAM_INT);
+        $sth->execute();
+        $rowsAffected = $sth->rowCount();
         return $rowsAffected;
     }
 
