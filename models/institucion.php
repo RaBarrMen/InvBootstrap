@@ -1,20 +1,29 @@
 <?php
 require_once("sistema.php");
-class Institucion extends Sistema{
+
+class Institucion extends Sistema {
+
     function create($data){
         $this->connect();
-        $sql = "insert into institucion( institucion, logotipo) values (:institucion, :logotipo);";
-        $sth = $this->_DB->prepare($sql);
-        $sth->bindParam(":institucion", $data['institucion'], PDO::PARAM_STR);
-        $sth->bindParam(":logotipo", $data['logotipo'], PDO::PARAM_STR);
-        $sth->execute();
-        $rowsAffected = $sth->rowCount();
-        return $rowsAffected;
+        $this->_DB->beginTransaction();
+        try {
+            $sql = "INSERT INTO institucion(institucion, logotipo) VALUES (:institucion, :logotipo)";
+            $sth = $this->_DB->prepare($sql);
+            $sth->bindParam(":institucion", $data['institucion'], PDO::PARAM_STR);
+            $sth->bindParam(":logotipo", $data['logotipo'], PDO::PARAM_STR);
+            $sth->execute();
+            $rowsAffected = $sth->rowCount();
+            $this->_DB->commit();
+            return $rowsAffected;
+        } catch (Exception $e){
+            $this->_DB->rollBack();
+        }
+        return null;
     }
 
     function read(){
         $this->connect();
-        $sth = $this -> _DB ->prepare("SELECT * FROM institucion");
+        $sth = $this->_DB->prepare("SELECT * FROM institucion");
         $sth->execute();
         $data = $sth->fetchAll();
         return $data;
@@ -22,7 +31,7 @@ class Institucion extends Sistema{
 
     function readOne($id){
         $this->connect();
-        $sth = $this -> _DB ->prepare("SELECT * FROM institucion where id_institucion = :id_institucion");
+        $sth = $this->_DB->prepare("SELECT * FROM institucion WHERE id_institucion = :id_institucion");
         $sth->bindParam(":id_institucion", $id, PDO::PARAM_INT);
         $sth->execute();
         $data = $sth->fetch(PDO::FETCH_ASSOC);
@@ -30,31 +39,54 @@ class Institucion extends Sistema{
     }
 
     function update($data, $id){
-        $this->connect();
-        $sql = "UPDATE institucion SET institucion = :institucion, logotipo = :logotipo WHERE id_institucion = :id_institucion";
-        $sth = $this->_DB->prepare($sql);
-        $sth->bindParam(":institucion", $data['institucion'], PDO::PARAM_STR);
-        $sth->bindParam(":logotipo", $data['logotipo'], PDO::PARAM_STR);
-        $sth->bindParam(":id_institucion", $id, PDO::PARAM_INT);
-        $sth->execute();
-        $rowsAffected = $sth->rowCount();
-        return $rowsAffected;
+        if (!is_numeric($id)){
+            return null;
+        }
+        if ($this->validate($data)){
+            $this->connect();
+            $this->_DB->beginTransaction();
+            try {
+                $sql = "UPDATE institucion 
+                        SET institucion = :institucion, logotipo = :logotipo 
+                        WHERE id_institucion = :id_institucion";
+                $sth = $this->_DB->prepare($sql);
+                $sth->bindParam(":institucion", $data['institucion'], PDO::PARAM_STR);
+                $sth->bindParam(":logotipo", $data['logotipo'], PDO::PARAM_STR);
+                $sth->bindParam(":id_institucion", $id, PDO::PARAM_INT);
+                $sth->execute();
+                $rowsAffected = $sth->rowCount();
+                $this->_DB->commit();
+                return $rowsAffected;
+            } catch (Exception $e){
+                $this->_DB->rollBack();
+            }
+        }
+        return null;
     }
 
     function delete($id){
         if (is_numeric($id)){
             $this->connect();
-            $sql = "DELETE FROM institucion WHERE id_institucion = :id_institucion";
-            $sth = $this->_DB->prepare($sql);
-            $sth->bindParam(":id_institucion", $id, PDO::PARAM_INT);
-            $sth->execute();
-            $rowsAffected = $sth->rowCount();
-            return $rowsAffected;
-        }else{
+            $this->_DB->beginTransaction();
+            try {
+                $sql = "DELETE FROM institucion WHERE id_institucion = :id_institucion";
+                $sth = $this->_DB->prepare($sql);
+                $sth->bindParam(":id_institucion", $id, PDO::PARAM_INT);
+                $sth->execute();
+                $rowsAffected = $sth->rowCount();
+                $this->_DB->commit();
+                return $rowsAffected;
+            } catch (Exception $e) {
+                $this->_DB->rollBack();
+            }
+            return null;
+        } else {
             return null;
         }
-        
     }
 
+    function validate($data){
+        return true; // aquí puedes meter validaciones reales
+    }
 }
 ?>
