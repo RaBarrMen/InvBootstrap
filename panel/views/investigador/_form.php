@@ -17,7 +17,7 @@
 
     <div class="mb-3">
         <label for="fotografia" class="form-label">fotografia</label>
-        <input type="text" class="form-control" id="fotografia" name="fotografia" placeholder="fotografia.png" required>
+        <input type="file" class="form-control" id="fotografia" name="fotografia" placeholder="fotografia.png" required>
     </div>
 
     <div class="mb-3">
@@ -31,8 +31,21 @@
     </div>
 
     <div class="mb-3">
-        <label for="tratamiento" class="form-label">Tratamiento</label>
-        <input type="text" class="form-control" id="tratamiento" name="tratamiento" placeholder="Ejemplo: Ingeniero, Doctor" required>
+        <label for="institucion" class="form-label">Institución</label>
+        <select class = "form-select" id="id_institucion" name="id_institucion" required = "required">
+            <?php foreach($instituciones as $institucion): ?>
+            <option value = "<?php echo $institucion['id_institucion']; ?>"><?php echo $institucion['institucion'];?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="tratamiento" class="form-label">Tratamiento</label>    
+        <select class = "form-select" id="id_tratamiento" name="id_tratamiento" required = "required">
+            <?php foreach($tratamientos as $tratamiento): ?>
+            <option value = "<?php echo $tratamiento['id_tratamiento']; ?>"><?php echo $tratamiento['tratamiento'];?></option>
+            <?php endforeach; ?>
+        </select>
     </div>
 
     <div>
