@@ -13,6 +13,14 @@
         <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $data['nombre']; ?>"  placeholder="Escribe aqui el nombre" required>
     </div>
     <div class="mb-3">
+        <label for="nombre" class="form-label">Correo Electronico</label>
+        <input type="text" class="form-control" id="correo" name="correo" value="<?php echo $data['correo']; ?>"  placeholder="Escribe aqui el correo" required>
+    </div>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Contraseña</label>
+        <input type="text" class="form-control" id="contrasenia" name="contrasenia" value="<?php echo $data['contrasenia']; ?>"  placeholder="Escribe aqui la contrasenia" required>
+    </div>
+    <div class="mb-3">
         <label for="fotografia" class="form-label">Fotografia</label>
         <input type="text" class="form-control" id="fotografia" name="fotografia" value="<?php echo $data['fotografia']; ?>"  placeholder="Escribe aqui el nombre de su fotografia" required>
     </div>

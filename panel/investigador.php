@@ -19,6 +19,8 @@ switch ($action) {
             $data['semblanza'] = $_POST['semblanza'];
             $data['id_institucion'] = $_POST['id_institucion'];
             $data['id_tratamiento'] = $_POST['id_tratamiento'];
+            $data['correo'] = $_POST['correo'];
+            $data['contrasenia'] = $_POST['contrasenia'];
             $filas = $app-> create($data);
             if ($filas) {
                 $alerta['mensaje'] = "Investigador dado de alta correctamente";

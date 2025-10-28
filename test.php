@@ -1,9 +1,8 @@
 <?php
-require_once("models/institucion.php");
-$app = new Institucion();
-//$filas = $app -> delete(4);
-$data['institucion']="Intitucion de prueba update";
-$data['logotipo']="logotipo_try.png";
-$filas = $app->update($data,5);
-print_r($filas);
+session_start();
+require_once("models/sistema.php");
+$sistema = new Sistema();
+$login = $sistema->login("21031439@itcelaya.edu.mx", "123");
+var_dump($login);
+print_r($_SESSION);
 ?>

@@ -16,6 +16,16 @@
     </div>
 
     <div class="mb-3">
+        <label for="nombre" class="form-label">Correo Electronico</label>
+        <input type="text" class="form-control" id="correo" name="correo" placeholder="Escribe el correo" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Contrasenia</label>
+        <input type="password" class="form-control" id="contrasenia" name="contrasenia" placeholder="Escribe la contrasenia" required>
+    </div>
+
+    <div class="mb-3">
         <label for="fotografia" class="form-label">fotografia</label>
         <input type="file" class="form-control" id="fotografia" name="fotografia" placeholder="fotografia.png" required>
     </div>
